@@ -1,0 +1,71 @@
+version: 1
+
+# Base64-encoded DN
+dn:: Y249QWxpY2UgTcO8bGxlcixvdT1QZW9wbGUsZGM9ZXhhbXBsZSxkYz1jb20=
+objectClass: inetOrgPerson
+cn:: QWxpY2UgTcO8bGxl
+ cg==
+sn: Mueller
+givenName;lang-en: Alice
+givenName;lang-de: Alice
+mail: alice.mueller@example.com
+# Long description with line folding
+description: This is a long value that wraps across multiple lines in the LDIF
+ file. The continuation is indicated by a single leading space on subsequent
+ lines, per RFC 2849.
+jpegPhoto:< file:///tmp/alice-photo.jpg
+
+# OID-style attribute names and empty value
+dn: cn=Schema Entry,dc=example,dc=com
+2.5.4.3: Schema Entry
+2.5.4.0: top
+description:
+
+# Uppercase DN variant
+DN: ou=Groups,dc=example,dc=com
+objectClass: organizationalUnit
+ou: Groups
+
+# Change record with controls
+dn: cn=Bob,ou=People,dc=example,dc=com
+control: 1.2.840.113556.1.4.805 true
+control: 2.16.840.1.113730.3.4.2
+changetype: add
+objectClass: inetOrgPerson
+cn: Bob
+sn: Builder
+
+# Modify with increment and delete operations
+dn: cn=Counter,dc=example,dc=com
+changeType: modify
+increment: serialNumber
+serialNumber: 1
+-
+delete: description
+-
+replace: telephoneNumber
+telephoneNumber: +31-20-555-0100
+# Updated phone number for NL office
+telephoneNumber: +31-20-555-0101
+-
+add: mail
+mail: counter@example.com
+-
+
+# moddn with newsuperior (move entry to different branch)
+dn: cn=Charlie,ou=People,dc=example,dc=com
+changetype: moddn
+newRDN: cn=Charlie
+deleteOldRDN: 0
+newSuperior: ou=Archive,dc=example,dc=com
+
+# modrdn with base64 newrdn
+dn: cn=Old Name,ou=People,dc=example,dc=com
+changetype: modrdn
+newrdn:: Y249TmV3IE5hbWU=
+deleteoldrdn: 1
+
+# Control with base64 value
+dn: cn=Sorted,dc=example,dc=com
+control: 1.2.840.113556.1.4.473 true:: MAWkAwEB
+changetype: delete

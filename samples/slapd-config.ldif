@@ -1,0 +1,20 @@
+version: 1
+
+# OLC (cn=config) style LDIF with embedded LDAP schema definitions
+# Tests injection of ldap_schema into olcAttributeTypes/olcObjectClasses values
+
+dn: cn=schema,cn=config
+objectClass: olcSchemaConfig
+cn: schema
+# Case variations to test case-insensitive injection matching
+olcAttributeTypes: ( 1.3.6.1.4.1.99999.1.1 NAME 'acmeEmployeeId' DESC 'Unique employee identifier' EQUALITY caseIgnoreMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.15{32} SINGLE-VALUE )
+olcattributetypes: ( 1.3.6.1.4.1.99999.1.2 NAME ( 'acmeDept' 'acmeDepartment' ) DESC 'Department name or code' SUP name )
+OLCATTRIBUTETYPES: ( 1.3.6.1.4.1.99999.1.3 NAME 'acmeBadgeNumber' EQUALITY integerMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 )
+olcObjectClasses: ( 1.3.6.1.4.1.99999.2.1 NAME 'acmePerson' DESC 'Acme Corp employee' SUP inetOrgPerson STRUCTURAL MUST ( acmeEmployeeId ) MAY ( acmeDept $ acmeBadgeNumber ) )
+olcobjectclasses: ( 1.3.6.1.4.1.99999.2.2 NAME 'acmeDevice' SUP top AUXILIARY MAY ( serialNumber $ description ) )
+# Other olc schema-related attributes
+olcLdapSyntaxes: ( 1.3.6.1.4.1.99999.3.1 DESC 'Custom binary format' )
+olcDitContentRules: ( 1.3.6.1.4.1.99999.2.1 NAME 'acmePersonContentRule' AUX ( posixAccount ) MUST ( uid ) NOT ( userPassword ) )
+olcMatchingRules: ( 1.3.6.1.4.1.99999.4.1 NAME 'acmeIdMatch' SYNTAX 1.3.6.1.4.1.1466.115.121.1.15 )
+olcMatchingRuleUse: ( 1.3.6.1.4.1.99999.4.1 NAME 'acmeIdMatchUse' APPLIES ( acmeEmployeeId ) )
+olcNameForms: ( 1.3.6.1.4.1.99999.5.1 NAME 'acmePersonNameForm' OC acmePerson MUST ( cn ) )
