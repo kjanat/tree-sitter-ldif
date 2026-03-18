@@ -1,4 +1,11 @@
+/**
+ * @file Tree-sitter grammar for LDIF (LDAP Data Interchange Format, RFC 2849)
+ * @author Kaj Kowalski info@kajkowalski.nl
+ * @license MIT
+ */
+
 /// <reference types="tree-sitter-cli/dsl" />
+// @ts-check
 
 export default grammar({
 	name: 'ldif',
