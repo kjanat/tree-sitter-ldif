@@ -1,0 +1,57 @@
+================================================================================
+OID-style attribute names
+================================================================================
+dn: cn=Schema Entry,dc=example,dc=com
+2.5.4.3: Schema Entry
+2.5.4.0: top
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (entry
+    (dn_spec
+      (dn_value
+        (value)))
+    (attrval_spec
+      (attribute_name)
+      (value))
+    (attrval_spec
+      (attribute_name)
+      (value))))
+
+================================================================================
+Empty attribute value
+================================================================================
+dn: cn=test,dc=example,dc=com
+description:
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (entry
+    (dn_spec
+      (dn_value
+        (value)))
+    (attrval_spec
+      (attribute_name))))
+
+================================================================================
+Language-tagged attribute names
+================================================================================
+dn: cn=test,dc=example,dc=com
+givenName;lang-en: Alice
+givenName;lang-de: Alice
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (entry
+    (dn_spec
+      (dn_value
+        (value)))
+    (attrval_spec
+      (attribute_name)
+      (value))
+    (attrval_spec
+      (attribute_name)
+      (value))))

@@ -1,0 +1,65 @@
+================================================================================
+modrdn with newsuperior
+================================================================================
+dn: cn=Charlie,ou=People,dc=example,dc=com
+changetype: moddn
+newRDN: cn=Charlie
+deleteOldRDN: 0
+newSuperior: ou=Archive,dc=example,dc=com
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (change_record
+    (dn_spec
+      (dn_value
+        (value)))
+    (changetype_spec
+      (changetype))
+    (change_content
+      (modrdn_content
+        (newrdn_spec
+          (value))
+        (deleteoldrdn_spec)
+        (newsuperior_spec
+          (dn_value
+            (value)))))))
+
+================================================================================
+modrdn with base64 newrdn
+================================================================================
+dn: cn=Old Name,ou=People,dc=example,dc=com
+changetype: modrdn
+newrdn:: Y249TmV3IE5hbWU=
+deleteoldrdn: 1
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (change_record
+    (dn_spec
+      (dn_value
+        (value)))
+    (changetype_spec
+      (changetype))
+    (change_content
+      (modrdn_content
+        (newrdn_spec
+          (value))
+        (deleteoldrdn_spec)))))
+
+================================================================================
+Change record delete (no content)
+================================================================================
+dn: cn=removed,dc=example,dc=com
+changetype: delete
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (change_record
+    (dn_spec
+      (dn_value
+        (value)))
+    (changetype_spec
+      (changetype))))

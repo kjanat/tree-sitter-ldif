@@ -1,0 +1,36 @@
+================================================================================
+Base64-encoded DN
+================================================================================
+dn:: Y249QWxpY2UsZGM9ZXhhbXBsZSxkYz1jb20=
+objectClass: person
+cn: Alice
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (entry
+    (dn_spec
+      (base64_value))
+    (attrval_spec
+      (attribute_name)
+      (value))
+    (attrval_spec
+      (attribute_name)
+      (value))))
+
+================================================================================
+Uppercase DN keyword
+================================================================================
+DN: ou=Groups,dc=example,dc=com
+objectClass: organizationalUnit
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (entry
+    (dn_spec
+      (dn_value
+        (value)))
+    (attrval_spec
+      (attribute_name)
+      (value))))

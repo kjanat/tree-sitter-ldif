@@ -1,0 +1,85 @@
+================================================================================
+Modify with increment operation
+================================================================================
+dn: cn=Counter,dc=example,dc=com
+changetype: modify
+increment: serialNumber
+serialNumber: 1
+-
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (change_record
+    (dn_spec
+      (dn_value
+        (value)))
+    (changetype_spec
+      (changetype))
+    (change_content
+      (modify_content
+        (modify_spec
+          (modify_operation
+            (attribute_name))
+          (attrval_spec
+            (attribute_name)
+            (value))
+          (separator))))))
+
+================================================================================
+Modify with delete (no values)
+================================================================================
+dn: cn=test,dc=example,dc=com
+changetype: modify
+delete: description
+-
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (change_record
+    (dn_spec
+      (dn_value
+        (value)))
+    (changetype_spec
+      (changetype))
+    (change_content
+      (modify_content
+        (modify_spec
+          (modify_operation
+            (attribute_name))
+          (separator))))))
+
+================================================================================
+Comment inside modify spec
+================================================================================
+dn: cn=test,dc=example,dc=com
+changetype: modify
+replace: telephoneNumber
+telephoneNumber: +31-20-555-0100
+# Updated phone number
+telephoneNumber: +31-20-555-0101
+-
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (change_record
+    (dn_spec
+      (dn_value
+        (value)))
+    (changetype_spec
+      (changetype))
+    (change_content
+      (modify_content
+        (modify_spec
+          (modify_operation
+            (attribute_name))
+          (attrval_spec
+            (attribute_name)
+            (value))
+          (comment)
+          (attrval_spec
+            (attribute_name)
+            (value))
+          (separator))))))

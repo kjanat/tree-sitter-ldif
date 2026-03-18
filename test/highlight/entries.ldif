@@ -1,0 +1,31 @@
+dn: cn=John Doe,dc=example,dc=com
+# <- keyword
+#   ^ label
+objectClass: person
+# <- property
+#            ^ string
+cn:: Sm9obiBEb2U=
+# <- property
+#    ^ string.special
+jpegPhoto:< file:///tmp/photo.jpg
+# <- property
+#           ^ markup.link.url
+
+dn: cn=Bob,dc=example,dc=com
+changetype: modify
+# <- keyword
+#           ^ type
+replace: description
+# <- keyword.operator
+description: new value
+# <- property
+-
+# <- punctuation.delimiter
+
+dn: cn=ctrl,dc=example,dc=com
+control: 1.2.3.4 true
+# <- keyword
+#        ^ constant.numeric
+#                ^ constant.builtin
+changetype: add
+objectClass: top

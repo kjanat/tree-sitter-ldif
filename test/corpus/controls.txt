@@ -1,0 +1,65 @@
+================================================================================
+Control with criticality
+================================================================================
+dn: cn=test,dc=example,dc=com
+control: 1.2.840.113556.1.4.805 true
+changetype: add
+objectClass: top
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (change_record
+    (dn_spec
+      (dn_value
+        (value)))
+    (control_spec
+      (oid)
+      (criticality))
+    (changetype_spec
+      (changetype))
+    (change_content
+      (add_content
+        (attrval_spec
+          (attribute_name)
+          (value))))))
+
+================================================================================
+Control without criticality
+================================================================================
+dn: cn=test,dc=example,dc=com
+control: 2.16.840.1.113730.3.4.2
+changetype: delete
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (change_record
+    (dn_spec
+      (dn_value
+        (value)))
+    (control_spec
+      (oid))
+    (changetype_spec
+      (changetype))))
+
+================================================================================
+Control with base64 value
+================================================================================
+dn: cn=test,dc=example,dc=com
+control: 1.2.840.113556.1.4.473 true:: MAWkAwEB
+changetype: delete
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (change_record
+    (dn_spec
+      (dn_value
+        (value)))
+    (control_spec
+      (oid)
+      (criticality)
+      (base64_value))
+    (changetype_spec
+      (changetype))))

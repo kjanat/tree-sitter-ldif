@@ -1,0 +1,68 @@
+================================================================================
+Multiple entries with version header
+================================================================================
+version: 1
+
+dn: dc=example,dc=com
+objectClass: dcObject
+dc: example
+
+dn: ou=People,dc=example,dc=com
+objectClass: organizationalUnit
+ou: People
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (version_spec
+    (version_number))
+  (entry
+    (dn_spec
+      (dn_value
+        (value)))
+    (attrval_spec
+      (attribute_name)
+      (value))
+    (attrval_spec
+      (attribute_name)
+      (value)))
+  (entry
+    (dn_spec
+      (dn_value
+        (value)))
+    (attrval_spec
+      (attribute_name)
+      (value))
+    (attrval_spec
+      (attribute_name)
+      (value))))
+
+================================================================================
+Comment between entries
+================================================================================
+dn: cn=first,dc=example,dc=com
+objectClass: top
+
+# separator comment
+
+dn: cn=second,dc=example,dc=com
+objectClass: top
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (entry
+    (dn_spec
+      (dn_value
+        (value)))
+    (attrval_spec
+      (attribute_name)
+      (value)))
+  (comment)
+  (entry
+    (dn_spec
+      (dn_value
+        (value)))
+    (attrval_spec
+      (attribute_name)
+      (value))))

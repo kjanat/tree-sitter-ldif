@@ -1,0 +1,37 @@
+================================================================================
+Value continuation (line folding)
+================================================================================
+dn: cn=test,dc=example,dc=com
+description: This is a long value that wraps across multiple
+ lines per RFC 2849
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (entry
+    (dn_spec
+      (dn_value
+        (value)))
+    (attrval_spec
+      (attribute_name)
+      (value
+        (continuation)))))
+
+================================================================================
+Base64 continuation across lines
+================================================================================
+dn: cn=test,dc=example,dc=com
+cn:: QWxpY2UgTcO8bGxl
+ cg==
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (entry
+    (dn_spec
+      (dn_value
+        (value)))
+    (attrval_spec
+      (attribute_name)
+      (base64_value
+        (base64_continuation)))))

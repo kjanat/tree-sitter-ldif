@@ -1,0 +1,11 @@
+dn: cn=John Doe,dc=example,dc=com
+#    ^ definition.class
+objectClass: person
+cn: John Doe
+
+dn: cn=modify-me,dc=example,dc=com
+#    ^ definition.class
+changetype: modify
+replace: cn
+cn: new name
+-
