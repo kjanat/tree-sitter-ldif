@@ -1,5 +1,5 @@
 # Helix config for LDIF files
-# Uses the tree-sitter-ldif grammar from this repo
+# Uses the tree-sitter-ldif grammar from GitHub
 
 [[language]]
 name          = "ldif"
@@ -10,5 +10,6 @@ comment-token = "#"
 grammar       = "ldif"
 
 [[grammar]]
-name   = "ldif"
-source = { path = "/home/kjanat/projects/ldap-schema-zed-bundle/tree-sitter-ldif" }
+name       = "ldif"
+source.git = "https://github.com/kjanat/tree-sitter-ldif.git"
+source.rev = "f6d1c3a755a89251f5b5f8abdcae3f3093243cfb"
