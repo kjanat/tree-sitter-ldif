@@ -59,7 +59,11 @@ module.exports = grammar({
 				optional(' '),
 				$.oid,
 				optional(seq(' ', $.criticality)),
-				optional(seq(choice(':', '::'), optional(' '), $.value)),
+				optional(choice(
+					seq(':', optional(' '), optional($.value)),
+					seq('::', optional(' '), $.base64_value),
+					seq(':<', optional(' '), $.url_value),
+				)),
 				$._newline,
 			),
 
@@ -143,14 +147,18 @@ module.exports = grammar({
 			seq(
 				$.attribute_name,
 				choice(
-					seq(':', optional(' '), $.value),
+					seq(':', optional(' '), optional($.value)),
 					seq('::', optional(' '), $.base64_value),
 					seq(':<', optional(' '), $.url_value),
 				),
 				$._newline,
 			),
 
-		attribute_name: _ => /[a-zA-Z][a-zA-Z0-9-]*(;[a-zA-Z0-9-]+)*/,
+		attribute_name: _ =>
+			choice(
+				/[a-zA-Z][a-zA-Z0-9-]*(;[a-zA-Z0-9-]+)*/,
+				/[0-9]+(\.[0-9]+)*(;[a-zA-Z0-9-]+)*/,
+			),
 
 		dn_value: $ => $.value,
 
