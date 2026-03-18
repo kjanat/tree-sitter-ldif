@@ -11,6 +11,7 @@ objectClass: top
 (source_file
   (change_record
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (control_spec
@@ -36,6 +37,7 @@ changetype: delete
 (source_file
   (change_record
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (control_spec
@@ -55,6 +57,7 @@ changetype: delete
 (source_file
   (change_record
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (control_spec

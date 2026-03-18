@@ -28,21 +28,13 @@
 		"helix:sync": "mkdir -p ~/.config/helix/runtime/queries/ldif && cp queries/*.scm ~/.config/helix/runtime/queries/ldif/",
 		"parse": "tree-sitter parse",
 		"playground": "[[ -n tree-sitter-ldif.wasm ]] && bun build:wasm; tree-sitter playground --quiet --grammar-path .",
-		"test": "tree-sitter test"
+		"test": "tree-sitter test",
+		"typecheck": "tsc --noEmit"
 	},
 	"devDependencies": {
 		"dprint": "^0.53.0",
 		"tree-sitter-cli": "^0.25.3",
 		"typescript": "^5.9.3"
 	},
-	"packageManager": "bun@1.3.11",
-	"tree-sitter": [
-		{
-			"scope": "source.ldif",
-			"file-types": [
-				"ldif"
-			],
-			"highlights": "queries/highlights.scm"
-		}
-	]
+	"packageManager": "bun@1.3.11"
 }

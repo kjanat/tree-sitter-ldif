@@ -200,11 +200,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "base64_value",
+          "named": true
+        },
+        {
+          "type": "dn_keyword",
           "named": true
         },
         {
@@ -467,14 +471,6 @@
     "named": false
   },
   {
-    "type": "DN:",
-    "named": false
-  },
-  {
-    "type": "DN::",
-    "named": false
-  },
-  {
     "type": "add",
     "named": false
   },
@@ -511,12 +507,8 @@
     "named": false
   },
   {
-    "type": "dn:",
-    "named": false
-  },
-  {
-    "type": "dn::",
-    "named": false
+    "type": "dn_keyword",
+    "named": true
   },
   {
     "type": "false",

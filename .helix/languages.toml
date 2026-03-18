@@ -1,11 +1,29 @@
+# Helix config for LDIF files
+# https://docs.helix-editor.com/languages.html
+
 [[language]]
-name          = "ldif"
-scope         = "source.ldif"
-file-types    = ["ldif"]
-roots         = []
-comment-token = "#"
-grammar       = "ldif"
+name            = "ldif"
+scope           = "source.ldif"
+injection-regex = "ldif"
+file-types      = ["ldif"]
+roots           = []
+comment-token   = "#"
+grammar         = "ldif"
+
+# Injection target: ldap-schema language must be known to Helix for LDIF injections
+[[language]]
+name            = "ldap-schema"
+scope           = "source.ldap-schema"
+injection-regex = "ldap.?schema"
+file-types      = ["schema"]
+roots           = []
+comment-token   = "#"
+grammar         = "ldap_schema"
 
 [[grammar]]
 name        = "ldif"
 source.path = "/home/kjanat/projects/ldap-schema-zed-bundle/tree-sitter-ldif"
+
+[[grammar]]
+name        = "ldap_schema"
+source.path = "/home/kjanat/projects/ldap-schema-zed-bundle/tree-sitter-ldap-schema"

@@ -10,6 +10,7 @@ cn: Alice
 (source_file
   (entry
     (dn_spec
+      (dn_keyword)
       (base64_value))
     (attrval_spec
       (attribute_name)
@@ -29,6 +30,7 @@ objectClass: organizationalUnit
 (source_file
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec

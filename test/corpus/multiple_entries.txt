@@ -18,6 +18,7 @@ ou: People
     (version_number))
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec
@@ -28,6 +29,7 @@ ou: People
       (value)))
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec
@@ -53,6 +55,7 @@ objectClass: top
 (source_file
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec
@@ -61,6 +64,7 @@ objectClass: top
   (comment)
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec

@@ -22,6 +22,7 @@ sn: Doe
 (source_file
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec
@@ -45,6 +46,7 @@ description:: VGhpcyBpcyBiYXNlNjQ=
 (source_file
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec
@@ -64,6 +66,7 @@ cn: new
 (source_file
   (change_record
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (changetype_spec
@@ -94,6 +97,7 @@ mail: test@example.com
 (source_file
   (change_record
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (changetype_spec
@@ -128,6 +132,7 @@ objectClass: top
   (comment)
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec

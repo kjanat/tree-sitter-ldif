@@ -6,7 +6,7 @@
 (oid) @constant.numeric
 
 ; DN keywords — the most prominent structural keyword
-["dn:" "DN:" "dn::" "DN::"] @keyword
+(dn_keyword) @keyword
 ["version:"] @keyword
 
 ; Change record keywords

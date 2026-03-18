@@ -10,6 +10,7 @@ description: This is a long value that wraps across multiple
 (source_file
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec
@@ -29,6 +30,7 @@ cn:: QWxpY2UgTcO8bGxl
 (source_file
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec

@@ -10,6 +10,7 @@ dn: cn=Schema Entry,dc=example,dc=com
 (source_file
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec
@@ -30,6 +31,7 @@ description:
 (source_file
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec
@@ -47,6 +49,7 @@ givenName;lang-de: Alice
 (source_file
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec

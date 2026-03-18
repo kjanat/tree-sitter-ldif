@@ -12,6 +12,7 @@ newSuperior: ou=Archive,dc=example,dc=com
 (source_file
   (change_record
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (changetype_spec
@@ -38,6 +39,7 @@ deleteoldrdn: 1
 (source_file
   (change_record
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (changetype_spec
@@ -59,6 +61,7 @@ changetype: delete
 (source_file
   (change_record
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (changetype_spec

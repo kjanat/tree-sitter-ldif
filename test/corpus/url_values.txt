@@ -9,6 +9,7 @@ jpegPhoto:< file:///tmp/photo.jpg
 (source_file
   (entry
     (dn_spec
+      (dn_keyword)
       (dn_value
         (value)))
     (attrval_spec

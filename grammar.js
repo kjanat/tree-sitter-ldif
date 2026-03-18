@@ -4,9 +4,6 @@
  * @license MIT
  */
 
-/// <reference types="tree-sitter-cli/dsl" />
-// @ts-check
-
 export default grammar({
 	name: 'ldif',
 
@@ -50,21 +47,26 @@ export default grammar({
 				optional($.change_content),
 			)),
 
+		// alias() wraps dn:/DN:/dn::/DN:: as named (dn_keyword) nodes so
+		// queries avoid "dn::" string literals — Helix tree-house misparses them.
 		dn_spec: $ =>
 			choice(
 				seq(
-					choice('dn:', 'DN:'),
+					alias(choice('dn:', 'DN:'), $.dn_keyword),
 					optional(' '),
 					$.dn_value,
 					$._newline,
 				),
 				seq(
-					choice('dn::', 'DN::'),
+					alias(choice('dn::', 'DN::'), $.dn_keyword),
 					optional(' '),
 					$.base64_value,
 					$._newline,
 				),
 			),
+
+		/** @see {@linkcode dn_spec} - alias target only, never matched directly */
+		dn_keyword: _ => token(choice('dn:', 'DN:')),
 
 		control_spec: $ =>
 			seq(
