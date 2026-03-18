@@ -1,0 +1,135 @@
+================================================================================
+Version header
+================================================================================
+version: 1
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (version_spec
+    (version_number)))
+
+================================================================================
+Simple entry
+================================================================================
+dn: cn=John Doe,dc=example,dc=com
+objectClass: person
+cn: John Doe
+sn: Doe
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (entry
+    (dn_spec
+      (dn_value
+        (value)))
+    (attrval_spec
+      (attribute_name)
+      (value))
+    (attrval_spec
+      (attribute_name)
+      (value))
+    (attrval_spec
+      (attribute_name)
+      (value))))
+
+================================================================================
+Base64 value
+================================================================================
+dn: cn=test,dc=example,dc=com
+description:: VGhpcyBpcyBiYXNlNjQ=
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (entry
+    (dn_spec
+      (dn_value
+        (value)))
+    (attrval_spec
+      (attribute_name)
+      (base64_value))))
+
+================================================================================
+Change record add
+================================================================================
+dn: cn=new,dc=example,dc=com
+changetype: add
+objectClass: person
+cn: new
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (change_record
+    (dn_spec
+      (dn_value
+        (value)))
+    (changetype_spec
+      (changetype))
+    (change_content
+      (add_content
+        (attrval_spec
+          (attribute_name)
+          (value))
+        (attrval_spec
+          (attribute_name)
+          (value))))))
+
+================================================================================
+Change record modify
+================================================================================
+dn: cn=test,dc=example,dc=com
+changetype: modify
+replace: description
+description: new value
+-
+add: mail
+mail: test@example.com
+-
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (change_record
+    (dn_spec
+      (dn_value
+        (value)))
+    (changetype_spec
+      (changetype))
+    (change_content
+      (modify_content
+        (modify_spec
+          (modify_operation
+            (attribute_name))
+          (attrval_spec
+            (attribute_name)
+            (value))
+          (separator))
+        (modify_spec
+          (modify_operation
+            (attribute_name))
+          (attrval_spec
+            (attribute_name)
+            (value))
+          (separator))))))
+
+================================================================================
+Comment
+================================================================================
+# This is a comment
+dn: cn=test,dc=example,dc=com
+objectClass: top
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (comment)
+  (entry
+    (dn_spec
+      (dn_value
+        (value)))
+    (attrval_spec
+      (attribute_name)
+      (value))))

@@ -1,0 +1,18 @@
+{
+	"grammars": [
+		{
+			"name": "ldif",
+			"scope": "source.ldif",
+			"path": ".",
+			"file-types": ["ldif"],
+			"highlights": "queries/highlights.scm"
+		}
+	],
+	"metadata": {
+		"version": "0.1.0",
+		"license": "MIT",
+		"links": {
+			"repository": "https://github.com/kjanat/tree-sitter-ldif"
+		}
+	}
+}

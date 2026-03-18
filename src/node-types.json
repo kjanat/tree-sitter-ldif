@@ -1,0 +1,532 @@
+[
+  {
+    "type": "add_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attrval_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "attrval_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_name",
+          "named": true
+        },
+        {
+          "type": "base64_value",
+          "named": true
+        },
+        {
+          "type": "url_value",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "change_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "add_content",
+          "named": true
+        },
+        {
+          "type": "modify_content",
+          "named": true
+        },
+        {
+          "type": "modrdn_content",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "change_record",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "change_content",
+          "named": true
+        },
+        {
+          "type": "changetype_spec",
+          "named": true
+        },
+        {
+          "type": "control_spec",
+          "named": true
+        },
+        {
+          "type": "dn_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "changetype",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "changetype_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "changetype",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "continuation",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "control_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "criticality",
+          "named": true
+        },
+        {
+          "type": "oid",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "criticality",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "deleteoldrdn_spec",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "dn_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "base64_value",
+          "named": true
+        },
+        {
+          "type": "dn_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "dn_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "entry",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attrval_spec",
+          "named": true
+        },
+        {
+          "type": "dn_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "modify_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "modify_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "modify_operation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "modify_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attrval_spec",
+          "named": true
+        },
+        {
+          "type": "modify_operation",
+          "named": true
+        },
+        {
+          "type": "separator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "modrdn_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "deleteoldrdn_spec",
+          "named": true
+        },
+        {
+          "type": "newrdn_spec",
+          "named": true
+        },
+        {
+          "type": "newsuperior_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "newrdn_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "base64_value",
+          "named": true
+        },
+        {
+          "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "newsuperior_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "base64_value",
+          "named": true
+        },
+        {
+          "type": "dn_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "separator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "root": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "change_record",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "entry",
+          "named": true
+        },
+        {
+          "type": "version_spec",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "url_value",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "continuation",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "version_spec",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "version_number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": " ",
+    "named": false
+  },
+  {
+    "type": "#",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "0",
+    "named": false
+  },
+  {
+    "type": "1",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "::",
+    "named": false
+  },
+  {
+    "type": ":<",
+    "named": false
+  },
+  {
+    "type": "DN:",
+    "named": false
+  },
+  {
+    "type": "add",
+    "named": false
+  },
+  {
+    "type": "add:",
+    "named": false
+  },
+  {
+    "type": "attribute_name",
+    "named": true
+  },
+  {
+    "type": "base64_value",
+    "named": true
+  },
+  {
+    "type": "changeType:",
+    "named": false
+  },
+  {
+    "type": "changetype:",
+    "named": false
+  },
+  {
+    "type": "control:",
+    "named": false
+  },
+  {
+    "type": "delete",
+    "named": false
+  },
+  {
+    "type": "delete:",
+    "named": false
+  },
+  {
+    "type": "deleteOldRDN:",
+    "named": false
+  },
+  {
+    "type": "deleteoldrdn:",
+    "named": false
+  },
+  {
+    "type": "dn:",
+    "named": false
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "increment:",
+    "named": false
+  },
+  {
+    "type": "moddn",
+    "named": false
+  },
+  {
+    "type": "modify",
+    "named": false
+  },
+  {
+    "type": "modrdn",
+    "named": false
+  },
+  {
+    "type": "newRDN:",
+    "named": false
+  },
+  {
+    "type": "newSuperior:",
+    "named": false
+  },
+  {
+    "type": "newrdn:",
+    "named": false
+  },
+  {
+    "type": "newsuperior:",
+    "named": false
+  },
+  {
+    "type": "oid",
+    "named": true
+  },
+  {
+    "type": "replace:",
+    "named": false
+  },
+  {
+    "type": "true",
+    "named": false
+  },
+  {
+    "type": "version:",
+    "named": false
+  },
+  {
+    "type": "version_number",
+    "named": true
+  }
+]
