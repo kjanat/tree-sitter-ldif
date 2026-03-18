@@ -27,7 +27,8 @@
 		"parse": "tree-sitter parse",
 		"test": "tree-sitter test",
 		"build:wasm": "tree-sitter build --wasm",
-		"playground": "[[ -n tree-sitter-ldif.wasm ]] && bun build:wasm; tree-sitter playground --quiet --grammar-path ."
+		"playground": "[[ -n tree-sitter-ldif.wasm ]] && bun build:wasm; tree-sitter playground --quiet --grammar-path .",
+		"helix:sync": "mkdir -p ~/.config/helix/runtime/queries/ldif && cp queries/*.scm ~/.config/helix/runtime/queries/ldif/"
 	},
 	"devDependencies": {
 		"dprint": "^0.53.0",

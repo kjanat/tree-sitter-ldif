@@ -5,7 +5,12 @@
 			"scope": "source.ldif",
 			"path": ".",
 			"file-types": ["ldif"],
-			"highlights": "queries/highlights.scm"
+			"first-line-regex": "^(version:\\s*[0-9]+|dn:|DN:)",
+			"injection-regex": "^ldif$",
+			"highlights": "queries/highlights.scm",
+			"injections": "queries/injections.scm",
+			"tags": "queries/tags.scm",
+			"locals": "queries/locals.scm"
 		}
 	],
 	"metadata": {

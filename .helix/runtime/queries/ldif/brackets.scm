@@ -1,1 +1,0 @@
-; No brackets in LDIF
