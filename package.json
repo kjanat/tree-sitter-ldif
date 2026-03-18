@@ -2,18 +2,18 @@
 	"name": "tree-sitter-ldif",
 	"version": "0.1.0",
 	"description": "Tree-sitter grammar for LDIF (LDAP Data Interchange Format, RFC 2849)",
-	"type": "commonjs",
 	"keywords": [
 		"parser",
 		"tree-sitter",
 		"ldif",
 		"ldap"
 	],
-	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/kjanat/tree-sitter-ldif.git"
 	},
+	"license": "MIT",
+	"type": "module",
 	"main": "bindings/node",
 	"files": [
 		"grammar.js",
