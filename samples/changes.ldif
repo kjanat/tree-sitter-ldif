@@ -1,0 +1,29 @@
+version: 1
+
+# Add a new entry
+dn: cn=New User,ou=People,dc=example,dc=com
+changetype: add
+objectClass: inetOrgPerson
+cn: New User
+sn: User
+mail: new.user@example.com
+
+# Modify an existing entry
+dn: cn=John Doe,ou=People,dc=example,dc=com
+changetype: modify
+replace: mail
+mail: john.doe.updated@example.com
+-
+add: telephoneNumber
+telephoneNumber: +1-555-1234
+-
+
+# Delete an entry
+dn: cn=Old User,ou=People,dc=example,dc=com
+changetype: delete
+
+# Rename an entry
+dn: cn=Jane Smith,ou=People,dc=example,dc=com
+changetype: modrdn
+newrdn: cn=Jane Doe
+deleteoldrdn: 1

@@ -6,144 +6,161 @@ module.exports = grammar({
 	extras: $ => [/ /],
 
 	rules: {
-		source_file: $ => seq(
-			optional($.version_spec),
-			repeat(choice($.entry, $.change_record, $.comment, $._blank_line)),
-		),
+		source_file: $ =>
+			seq(
+				optional($.version_spec),
+				repeat(choice($.entry, $.change_record, $.comment, $._blank_line)),
+			),
 
-		version_spec: $ => seq(
-			'version:',
-			$.version_number,
-			$._newline,
-		),
+		version_spec: $ =>
+			seq(
+				'version:',
+				$.version_number,
+				$._newline,
+			),
 
 		version_number: _ => /[0-9]+/,
 
 		// Regular entry (content record)
-		entry: $ => prec.right(seq(
-			$.dn_spec,
-			repeat1($.attrval_spec),
-		)),
+		entry: $ =>
+			prec.right(seq(
+				$.dn_spec,
+				repeat1($.attrval_spec),
+			)),
 
 		// Change record for ldapmodify
-		change_record: $ => prec.right(seq(
-			$.dn_spec,
-			optional($.control_spec),
-			$.changetype_spec,
-			optional($.change_content),
-		)),
+		change_record: $ =>
+			prec.right(seq(
+				$.dn_spec,
+				optional($.control_spec),
+				$.changetype_spec,
+				optional($.change_content),
+			)),
 
-		dn_spec: $ => seq(
-			choice('dn:', 'DN:'),
-			choice(
-				seq(optional(' '), $.dn_value),
-				seq(':', optional(' '), $.base64_value),
+		dn_spec: $ =>
+			seq(
+				choice('dn:', 'DN:'),
+				choice(
+					seq(optional(' '), $.dn_value),
+					seq(':', optional(' '), $.base64_value),
+				),
+				$._newline,
 			),
-			$._newline,
-		),
 
-		control_spec: $ => seq(
-			'control:',
-			optional(' '),
-			$.oid,
-			optional(seq(' ', $.criticality)),
-			optional(seq(choice(':', '::'), optional(' '), $.value)),
-			$._newline,
-		),
+		control_spec: $ =>
+			seq(
+				'control:',
+				optional(' '),
+				$.oid,
+				optional(seq(' ', $.criticality)),
+				optional(seq(choice(':', '::'), optional(' '), $.value)),
+				$._newline,
+			),
 
 		criticality: _ => choice('true', 'false'),
 
-		changetype_spec: $ => seq(
-			choice('changetype:', 'changeType:'),
-			optional(' '),
-			$.changetype,
-			$._newline,
-		),
+		changetype_spec: $ =>
+			seq(
+				choice('changetype:', 'changeType:'),
+				optional(' '),
+				$.changetype,
+				$._newline,
+			),
 
 		changetype: _ => choice('add', 'delete', 'modify', 'modrdn', 'moddn'),
 
-		change_content: $ => choice(
-			$.add_content,
-			$.modify_content,
-			$.modrdn_content,
-			// delete has no content
-		),
+		change_content: $ =>
+			choice(
+				$.add_content,
+				$.modify_content,
+				$.modrdn_content,
+				// delete has no content
+			),
 
 		add_content: $ => repeat1($.attrval_spec),
 
 		modify_content: $ => repeat1($.modify_spec),
 
-		modify_spec: $ => seq(
-			$.modify_operation,
-			repeat($.attrval_spec),
-			$.separator,
-		),
+		modify_spec: $ =>
+			seq(
+				$.modify_operation,
+				repeat($.attrval_spec),
+				$.separator,
+			),
 
-		modify_operation: $ => seq(
-			choice('add:', 'delete:', 'replace:', 'increment:'),
-			optional(' '),
-			$.attribute_name,
-			$._newline,
-		),
+		modify_operation: $ =>
+			seq(
+				choice('add:', 'delete:', 'replace:', 'increment:'),
+				optional(' '),
+				$.attribute_name,
+				$._newline,
+			),
 
 		separator: $ => seq('-', $._newline),
 
-		modrdn_content: $ => seq(
-			$.newrdn_spec,
-			$.deleteoldrdn_spec,
-			optional($.newsuperior_spec),
-		),
-
-		newrdn_spec: $ => seq(
-			choice('newrdn:', 'newRDN:'),
-			choice(
-				seq(optional(' '), $.value),
-				seq(':', optional(' '), $.base64_value),
+		modrdn_content: $ =>
+			seq(
+				$.newrdn_spec,
+				$.deleteoldrdn_spec,
+				optional($.newsuperior_spec),
 			),
-			$._newline,
-		),
 
-		deleteoldrdn_spec: $ => seq(
-			choice('deleteoldrdn:', 'deleteOldRDN:'),
-			optional(' '),
-			choice('0', '1'),
-			$._newline,
-		),
-
-		newsuperior_spec: $ => seq(
-			choice('newsuperior:', 'newSuperior:'),
-			choice(
-				seq(optional(' '), $.dn_value),
-				seq(':', optional(' '), $.base64_value),
+		newrdn_spec: $ =>
+			seq(
+				choice('newrdn:', 'newRDN:'),
+				choice(
+					seq(optional(' '), $.value),
+					seq(':', optional(' '), $.base64_value),
+				),
+				$._newline,
 			),
-			$._newline,
-		),
 
-		attrval_spec: $ => seq(
-			$.attribute_name,
-			choice(
-				seq(':', optional(' '), $.value),
-				seq('::', optional(' '), $.base64_value),
-				seq(':<', optional(' '), $.url_value),
+		deleteoldrdn_spec: $ =>
+			seq(
+				choice('deleteoldrdn:', 'deleteOldRDN:'),
+				optional(' '),
+				choice('0', '1'),
+				$._newline,
 			),
-			$._newline,
-		),
+
+		newsuperior_spec: $ =>
+			seq(
+				choice('newsuperior:', 'newSuperior:'),
+				choice(
+					seq(optional(' '), $.dn_value),
+					seq(':', optional(' '), $.base64_value),
+				),
+				$._newline,
+			),
+
+		attrval_spec: $ =>
+			seq(
+				$.attribute_name,
+				choice(
+					seq(':', optional(' '), $.value),
+					seq('::', optional(' '), $.base64_value),
+					seq(':<', optional(' '), $.url_value),
+				),
+				$._newline,
+			),
 
 		attribute_name: _ => /[a-zA-Z][a-zA-Z0-9-]*(;[a-zA-Z0-9-]+)*/,
 
 		dn_value: $ => $.value,
 
-		value: $ => prec.right(seq(
-			$._value_content,
-			repeat($.continuation),
-		)),
+		value: $ =>
+			prec.right(seq(
+				$._value_content,
+				repeat($.continuation),
+			)),
 
 		_value_content: _ => /[^\n\r]+/,
 
-		continuation: $ => seq(
-			/\r?\n /,
-			$._value_content,
-		),
+		continuation: $ =>
+			seq(
+				/\r?\n /,
+				$._value_content,
+			),
 
 		base64_value: _ => /[A-Za-z0-9+/=]+/,
 

@@ -1,0 +1,28 @@
+version: 1
+
+# Example LDIF file for testing
+
+dn: dc=example,dc=com
+objectClass: top
+objectClass: domain
+dc: example
+
+dn: ou=People,dc=example,dc=com
+objectClass: organizationalUnit
+ou: People
+description: Container for user entries
+
+dn: cn=John Doe,ou=People,dc=example,dc=com
+objectClass: inetOrgPerson
+cn: John Doe
+sn: Doe
+givenName: John
+mail: john.doe@example.com
+userPassword:: e1NTSEF9c2VjcmV0
+
+dn: cn=Jane Smith,ou=People,dc=example,dc=com
+objectClass: inetOrgPerson
+cn: Jane Smith
+sn: Smith
+givenName: Jane
+mail: jane.smith@example.com

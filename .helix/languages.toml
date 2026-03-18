@@ -1,0 +1,14 @@
+# Helix config for LDIF files
+# Uses the tree-sitter-ldif grammar from this repo
+
+[[language]]
+name = "ldif"
+scope = "source.ldif"
+file-types = ["ldif"]
+roots = []
+comment-token = "#"
+grammar = "ldif"
+
+[[grammar]]
+name = "ldif"
+source = { path = "/home/kjanat/projects/ldap-schema-zed-bundle/tree-sitter-ldif" }

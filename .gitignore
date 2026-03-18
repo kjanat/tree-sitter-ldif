@@ -1,4 +1,7 @@
 node_modules/
 build/
+*.so
+*.dylib
+*.dll
 *.log
 .DS_Store

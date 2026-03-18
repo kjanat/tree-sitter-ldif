@@ -1,20 +1,41 @@
 {
 	"name": "tree-sitter-ldif",
 	"version": "0.1.0",
-	"description": "Tree-sitter grammar for LDIF (LDAP Data Interchange Format)",
-	"main": "bindings/node",
-	"keywords": ["tree-sitter", "ldif", "ldap"],
+	"description": "Tree-sitter grammar for LDIF (LDAP Data Interchange Format, RFC 2849)",
+	"keywords": [
+		"parser",
+		"tree-sitter",
+		"ldif",
+		"ldap"
+	],
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/kjanat/tree-sitter-ldif.git"
+		"url": "git+https://github.com/kjanat/tree-sitter-ldif.git"
 	},
+	"main": "bindings/node",
+	"files": [
+		"grammar.js",
+		"queries/*",
+		"src/*",
+		"bindings/node/*"
+	],
 	"scripts": {
+		"fmt": "npx -y dprint fmt",
 		"generate": "tree-sitter generate",
-		"test": "tree-sitter test",
-		"parse": "tree-sitter parse"
+		"parse": "tree-sitter parse",
+		"test": "tree-sitter test"
 	},
 	"devDependencies": {
 		"tree-sitter-cli": "^0.25.3"
-	}
+	},
+	"tree-sitter": [
+		{
+			"scope": "source.ldif",
+			"file-types": [
+				"ldif"
+			],
+			"highlights": "queries/highlights.scm"
+		}
+	]
 }
