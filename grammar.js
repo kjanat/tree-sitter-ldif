@@ -51,13 +51,19 @@ export default grammar({
 			)),
 
 		dn_spec: $ =>
-			seq(
-				choice('dn:', 'DN:'),
-				choice(
-					seq(optional(' '), $.dn_value),
-					seq(':', optional(' '), $.base64_value),
+			choice(
+				seq(
+					choice('dn:', 'DN:'),
+					optional(' '),
+					$.dn_value,
+					$._newline,
 				),
-				$._newline,
+				seq(
+					choice('dn::', 'DN::'),
+					optional(' '),
+					$.base64_value,
+					$._newline,
+				),
 			),
 
 		control_spec: $ =>

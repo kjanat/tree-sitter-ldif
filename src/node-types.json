@@ -471,6 +471,10 @@
     "named": false
   },
   {
+    "type": "DN::",
+    "named": false
+  },
+  {
     "type": "add",
     "named": false
   },
@@ -508,6 +512,10 @@
   },
   {
     "type": "dn:",
+    "named": false
+  },
+  {
+    "type": "dn::",
     "named": false
   },
   {
