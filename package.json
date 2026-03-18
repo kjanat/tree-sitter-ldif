@@ -2,6 +2,7 @@
 	"name": "tree-sitter-ldif",
 	"version": "0.1.0",
 	"description": "Tree-sitter grammar for LDIF (LDAP Data Interchange Format, RFC 2849)",
+	"type": "commonjs",
 	"keywords": [
 		"parser",
 		"tree-sitter",
@@ -27,7 +28,8 @@
 		"test": "tree-sitter test"
 	},
 	"devDependencies": {
-		"tree-sitter-cli": "^0.25.3"
+		"tree-sitter-cli": "^0.25.3",
+		"typescript": "^5.9.3"
 	},
 	"tree-sitter": [
 		{

@@ -1,9 +1,9 @@
 /// <reference types="tree-sitter-cli/dsl" />
 
-module.exports = grammar({
+export default grammar({
 	name: 'ldif',
 
-	extras: $ => [/ /],
+	extras: _ => [/ /],
 
 	conflicts: $ => [
 		[$.entry, $.change_record],
