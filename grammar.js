@@ -5,6 +5,11 @@ module.exports = grammar({
 
 	extras: $ => [/ /],
 
+	conflicts: $ => [
+		[$.entry, $.change_record],
+		[$.change_record, $.add_content],
+	],
+
 	rules: {
 		source_file: $ =>
 			seq(
@@ -25,15 +30,16 @@ module.exports = grammar({
 		entry: $ =>
 			prec.right(seq(
 				$.dn_spec,
-				repeat1($.attrval_spec),
+				repeat1(choice($.attrval_spec, $.comment)),
 			)),
 
 		// Change record for ldapmodify
 		change_record: $ =>
 			prec.right(seq(
 				$.dn_spec,
-				optional($.control_spec),
+				repeat(choice($.control_spec, $.comment)),
 				$.changetype_spec,
+				repeat($.comment),
 				optional($.change_content),
 			)),
 
@@ -77,16 +83,16 @@ module.exports = grammar({
 				// delete has no content
 			),
 
-		add_content: $ => repeat1($.attrval_spec),
+		add_content: $ => prec.right(repeat1(choice($.attrval_spec, $.comment))),
 
 		modify_content: $ => repeat1($.modify_spec),
 
 		modify_spec: $ =>
-			seq(
+			prec.right(seq(
 				$.modify_operation,
-				repeat($.attrval_spec),
-				$.separator,
-			),
+				repeat(choice($.attrval_spec, $.comment)),
+				optional($.separator),
+			)),
 
 		modify_operation: $ =>
 			seq(
@@ -162,13 +168,29 @@ module.exports = grammar({
 				$._value_content,
 			),
 
-		base64_value: _ => /[A-Za-z0-9+/=]+/,
+		base64_value: $ =>
+			prec.right(seq(
+				$._base64_content,
+				repeat($.base64_continuation),
+			)),
+
+		_base64_content: _ => /[A-Za-z0-9+/=]+/,
+
+		base64_continuation: $ =>
+			seq(
+				/\r?\n /,
+				$._base64_content,
+			),
 
 		url_value: _ => /[^\n\r]+/,
 
 		oid: _ => /[0-9]+(\.[0-9]+)*/,
 
-		comment: $ => seq('#', /[^\n\r]*/, $._newline),
+		comment: $ =>
+			seq(
+				token(seq('#', /[^\n\r]*/, repeat(seq(/\r?\n /, /[^\n\r]*/)))),
+				$._newline,
+			),
 
 		_blank_line: $ => $._newline,
 

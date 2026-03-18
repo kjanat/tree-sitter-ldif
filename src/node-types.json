@@ -10,6 +10,10 @@
         {
           "type": "attrval_spec",
           "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
         }
       ]
     }
@@ -36,6 +40,26 @@
         },
         {
           "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "base64_continuation",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "base64_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "base64_continuation",
           "named": true
         }
       ]
@@ -78,6 +102,10 @@
         },
         {
           "type": "changetype_spec",
+          "named": true
+        },
+        {
+          "type": "comment",
           "named": true
         },
         {
@@ -201,6 +229,10 @@
           "named": true
         },
         {
+          "type": "comment",
+          "named": true
+        },
+        {
           "type": "dn_spec",
           "named": true
         }
@@ -247,6 +279,10 @@
       "types": [
         {
           "type": "attrval_spec",
+          "named": true
+        },
+        {
+          "type": "comment",
           "named": true
         },
         {
@@ -394,10 +430,6 @@
     "named": false
   },
   {
-    "type": "#",
-    "named": false
-  },
-  {
     "type": "-",
     "named": false
   },
@@ -435,10 +467,6 @@
   },
   {
     "type": "attribute_name",
-    "named": true
-  },
-  {
-    "type": "base64_value",
     "named": true
   },
   {
