@@ -1,0 +1,14 @@
+.{
+    .name = .tree_sitter_ldif,
+    .fingerprint = 0xd8fb2c2faabd4451,
+    .version = "0.1.0",
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "bindings/zig",
+        "src",
+        "queries",
+        "LICENSE",
+        "README.md",
+    },
+}

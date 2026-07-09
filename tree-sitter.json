@@ -1,39 +1,46 @@
 {
-	"$schema": "https://raw.githubusercontent.com/tree-sitter/tree-sitter/refs/heads/master/docs/src/assets/schemas/config.schema.json",
-	"grammars": [
-		{
-			"name": "ldif",
-			"camelcase": "Ldif",
-			"title": "LDIF",
-			"scope": "source.ldif",
-			"path": ".",
-			"file-types": ["ldif"],
-			"first-line-regex": "^(version:\\s*[0-9]+|dn:|DN:)",
-			"injection-regex": "^ldif$",
-			"highlights": "queries/highlights.scm",
-			"injections": "queries/injections.scm",
-			"tags": "queries/tags.scm",
-			"locals": "queries/locals.scm"
-		}
-	],
-	"metadata": {
-		"version": "0.1.0",
-		"license": "MIT",
-		"description": "Tree-sitter grammar for LDIF (LDAP Data Interchange Format, RFC 2849)",
-		"authors": [{
-			"name": "Kaj Kowalski",
-			"email": "info@kajkowalski.nl",
-			"url": "https://github.com/kjanat"
-		}],
-		"links": {
-			"repository": "https://github.com/kjanat/tree-sitter-ldif"
-		}
-	},
-	"bindings": {
-		"c": true,
-		"go": true,
-		"node": true,
-		"python": true,
-		"rust": true
-	}
+  "$schema": "https://raw.githubusercontent.com/tree-sitter/tree-sitter/refs/heads/master/docs/src/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "ldif",
+      "camelcase": "Ldif",
+      "title": "LDIF",
+      "scope": "source.ldif",
+      "path": ".",
+      "file-types": [
+        "ldif"
+      ],
+      "highlights": "queries/highlights.scm",
+      "injections": "queries/injections.scm",
+      "locals": "queries/locals.scm",
+      "tags": "queries/tags.scm",
+      "injection-regex": "^ldif$",
+      "first-line-regex": "^(version:\\s*[0-9]+|dn:|DN:)"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Tree-sitter grammar for LDIF (LDAP Data Interchange Format, RFC 2849)",
+    "authors": [
+      {
+        "name": "Kaj Kowalski",
+        "email": "info@kajkowalski.nl",
+        "url": "https://github.com/kjanat"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/kjanat/tree-sitter-ldif"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "java": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": true
+  }
 }
