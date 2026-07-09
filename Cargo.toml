@@ -1,0 +1,33 @@
+[package]
+name         = "tree-sitter-ldif"
+description  = "Tree-sitter grammar for LDIF (LDAP Data Interchange Format, RFC 2849)"
+version      = "0.1.0"
+authors      = ["Kaj Kowalski <info@kajkowalski.nl>"] # tombi: settings.schema = false
+license      = "MIT"
+readme       = "README.md"
+keywords     = ["incremental", "ldif", "parsing", "tree-sitter"]
+categories   = ["parser-implementations", "parsing", "text-editors"]
+repository   = "https://github.com/kjanat/tree-sitter-ldif"
+edition      = "2024"
+autoexamples = false
+build        = "bindings/rust/build.rs"
+include      = [
+  "/LICENSE",
+  "bindings/rust/*",
+  "grammar.js",
+  "queries/*",
+  "src/*",
+  "tree-sitter.json",
+]
+
+[lib]
+path = "bindings/rust/lib.rs"
+
+[dependencies]
+tree-sitter-language = "0.1"
+
+[dev-dependencies]
+tree-sitter = "0.26.10"
+
+[build-dependencies]
+cc = "1.2"
